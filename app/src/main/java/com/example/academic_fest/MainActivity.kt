@@ -12,9 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.login)
     }
 
-
-
-
     fun button2(view: View) {
 
         val secondButton = findViewById<Button>(R.id.bt2)
