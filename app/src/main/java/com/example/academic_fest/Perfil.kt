@@ -32,7 +32,7 @@ class Perfil : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
 
             val intent= Intent( this,MainMenu::class.java)
-
+            val intent4 = Intent( this,MainActivity::class.java)
             when(it.itemId){
 
                 R.id.nav_home ->
@@ -45,6 +45,8 @@ class Perfil : AppCompatActivity() {
                 R.id.nav_perfil ->
                     Toast.makeText(applicationContext,"clicked perfil", Toast.LENGTH_SHORT).show()
 
+                R.id.nav_logout ->
+                    startActivity(intent4)
             }
             true
         }
