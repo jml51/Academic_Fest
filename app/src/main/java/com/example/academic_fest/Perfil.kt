@@ -19,6 +19,7 @@ class Perfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
 
+        //------------ dreawer----------//
         var drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout2)
         val navView : NavigationView = findViewById(R.id.nav_view)
 
@@ -32,6 +33,8 @@ class Perfil : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
 
             val intent= Intent( this,MainMenu::class.java)
+            val intent2= Intent( this,Bilhetes::class.java)
+            val intent3= Intent( this,Perfil::class.java)
 
             when(it.itemId){
 
@@ -40,14 +43,15 @@ class Perfil : AppCompatActivity() {
                     startActivity(intent)
 
                 R.id.nav_bilhetes ->
-                    Toast.makeText(applicationContext,"clicked bilhetes", Toast.LENGTH_SHORT).show()
+                    startActivity(intent2)
 
                 R.id.nav_perfil ->
-                    Toast.makeText(applicationContext,"clicked perfil", Toast.LENGTH_SHORT).show()
+                    startActivity(intent3)
 
             }
             true
         }
+        //------------ dreawer----------//
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
