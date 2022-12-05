@@ -43,11 +43,11 @@ class Bilhetes : AppCompatActivity() {
             val intent= Intent( this,MainMenu::class.java)
             val intent2= Intent( this,Bilhetes::class.java)
             val intent3= Intent( this,Perfil::class.java)
+            val intent4= Intent( this,MainActivity::class.java)
 
             when(it.itemId){
 
                 R.id.nav_home ->
-
                     startActivity(intent)
 
                 R.id.nav_bilhetes ->
@@ -55,6 +55,9 @@ class Bilhetes : AppCompatActivity() {
 
                 R.id.nav_perfil ->
                     startActivity(intent3)
+
+                R.id.nav_logout ->
+                    startActivity(intent4)
 
             }
             true
