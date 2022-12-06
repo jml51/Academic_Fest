@@ -17,8 +17,10 @@ lateinit var toggle : ActionBarDrawerToggle
 
 private lateinit var newRecyclerview: RecyclerView
 private lateinit var newArrayList: ArrayList<News>
+
 lateinit var imageId : Array<Int>
 lateinit var heading : Array<String>
+lateinit var news:     Array<String>
 
 
 class Bilhetes : AppCompatActivity() {
@@ -65,8 +67,8 @@ class Bilhetes : AppCompatActivity() {
         //------------ dreawer----------//
 
         imageId = arrayOf(
-            R.drawable.a,
-            R.drawable.b,
+            R.drawable.image1,
+            R.drawable.image2,
             R.drawable.c,
             R.drawable.d,
 
@@ -74,8 +76,8 @@ class Bilhetes : AppCompatActivity() {
             )
 
         heading = arrayOf(
-            "Biden aims to expand vaccines for adults and children",
-            "Just got my first shot, helping the world to be a safer place",
+            "Semana academica Viana do castelo",
+            "Enterro da gata",
             "Local trains to be suspended in Bengal from tomorrow in view of covid-19",
             "MHA asks states,UTs to ensure there are no fires in hospitals",
             "Australian citizen sues PM Morrison over flight ban from india",
@@ -84,6 +86,12 @@ class Bilhetes : AppCompatActivity() {
             "Barcelona church offers open-air space for Ramadan",
             "Trillions of cicadas set to emerge in the US, here's why",
             "Homemaker, economist: Cadidates from all walks of life in Bengal assembly"
+        )
+
+        news = arrayOf(
+
+                    getString(R.string.news_a),
+                    getString(R.string.news_b)
         )
 
         newRecyclerview = findViewById(R.id.recyclerView)
@@ -107,6 +115,7 @@ class Bilhetes : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     //------------ dreawer----------//
+
     private fun getUserdata(){
         for(i in imageId. indices){
             val news = News(imageId[i],heading[i])
@@ -114,7 +123,24 @@ class Bilhetes : AppCompatActivity() {
 
         }
 
-        newRecyclerview.adapter = MyAdapter(newArrayList)
+        var adapter =  MyAdapter(newArrayList)
+        newRecyclerview.adapter = adapter
+        adapter.setOnItemClickListener(object : MyAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+
+                //Toast.makeText(this@Bilhetes, "boas a todos $position", Toast.LENGTH_SHORT).show()
+
+                val intent= Intent(this@Bilhetes,NewsActivity::class.java)
+                intent.putExtra("heading", newArrayList[position].heading)
+                intent.putExtra("imageId", newArrayList[position].tittleImage)
+                intent.putExtra("news", news[position])
+
+                startActivity(intent)
+
+            }
+
+
+        })
     }
 
 }

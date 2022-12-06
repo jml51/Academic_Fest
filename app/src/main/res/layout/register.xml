@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter nome"
-         />
+            />
 
 
         <TextView
@@ -63,7 +63,7 @@
             android:text="Email"
             android:textSize="20dp"
 
-             />
+            />
 
         <EditText
             android:id="@+id/Editemail"
@@ -92,32 +92,12 @@
             android:inputType="textEmailAddress" />
 
 
-
-        <TextView
-            android:id="@+id/Cofirmpass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Confirm Password"
-            android:textSize="20dp"
-
-            />
-
-        <EditText
-            android:id="@+id/Editonfirmpass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Confirm password"
-            android:inputType="textEmailAddress" />
-
         <Button
             android:id="@+id/bt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:onClick="button2"
             android:text="Registar" />
 
 

@@ -8,12 +8,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.academic_fest.R
 import com.google.android.material.imageview.ShapeableImageView
 
-class MyAdapter(private val newsList : ArrayList<News>): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class  MyAdapter(private val newsList : ArrayList<News>): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+
+    private lateinit var mListener  : onItemClickListener
+
+    interface onItemClickListener{
+
+        fun  onItemClick(position: Int)
+
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener){
+
+        mListener = listener
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView,mListener)
 
     }
 
@@ -31,10 +45,20 @@ class MyAdapter(private val newsList : ArrayList<News>): RecyclerView.Adapter<My
 
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
 
         val titleImage : ShapeableImageView = itemView.findViewById(R.id.tittle_image)
         val tvHolder : TextView = itemView.findViewById(R.id.tvHeading)
+
+        init {
+
+            itemView.setOnClickListener {
+
+                listener.onItemClick(adapterPosition)
+
+            }
+
+        }
 
     }
 
