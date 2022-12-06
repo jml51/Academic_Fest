@@ -56,6 +56,7 @@ class MainMenu : AppCompatActivity() {
             val intent2 = Intent( this,Perfil::class.java)
             val intent3 = Intent( this,Bilhetes::class.java)
             val intent4 = Intent( this,MainActivity::class.java)
+            val intent5 = Intent( this,MapsActivity::class.java)
 
             when(it.itemId){
 
@@ -70,6 +71,8 @@ class MainMenu : AppCompatActivity() {
 
                 R.id.nav_logout ->
                     startActivity(intent4)
+                R.id.nav_mapa ->
+                    startActivity(intent5)
 
             }
             true
