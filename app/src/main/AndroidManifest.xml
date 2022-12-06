@@ -40,13 +40,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_atividades"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Bilhetes"
             android:exported="false">
             <meta-data
